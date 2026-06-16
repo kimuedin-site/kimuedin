@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>오연주 고객님 보장리모델링 제안 · KB손해보험 김유진 TC</title>
+
+<!-- ===== 링크 미리보기(카톡·문자) 설정 ===== -->
+<!-- ▼ 게시 후, 아래 OG_IMAGE_URL_HERE 를 og-card-오연주.jpg 의 실제 주소로 바꾸세요 -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="오연주 고객님 보장리모델링 제안">
+<meta property="og:description" content="KB 5.10.10 Young 플러스 건강보험 · 월 162,320원 · 30년납 100세만기 · 비갱신형(고정). 김유진 TC가 직접 설계했습니다.">
+<meta property="og:image" content="OG_IMAGE_URL_HERE">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="오연주 고객님 보장리모델링 제안">
+<meta name="twitter:description" content="월 162,320원 · 30년납 100세만기 · 비갱신형(고정)">
+<meta name="twitter:image" content="OG_IMAGE_URL_HERE">
+<!-- ========================================= -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --kb-yellow:       #FFB81C;
+  --kb-yellow-light: #FFD97A;
+  --kb-yellow-pale:  #FFF8E6;
+  --kb-yellow-dark:  #A06B00;
+  --kb-dark:         #6B6560;
+  --kb-dark-soft:    #857E78;
+  --kb-teal:         #00897B;
+  --kb-teal-light:   #E0F2F0;
+  --kb-blue:         #1565C0;
+  --kb-blue-light:   #E3EEFF;
+  --kb-red:          #C62828;
+  --bg:              #FAF8F4;
+  --white:           #FFFFFF;
+  --gray-100:        #F4F2EE;
+  --gray-200:        #E8E4DC;
+  --gray-400:        #9E9890;
+  --gray-700:        #7A7570;
+  --text:            #3C3830;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  padding: 1rem 1rem 3rem;
+}
+
+/* ══ 상단 탭바 ══ */
+.tab-bar {
+  display: flex; gap: 8px;
+  max-width: 760px; margin: 0 auto 2rem;
+  background: var(--white); border-radius: 50px;
+  padding: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.tab-btn {
+  flex: 1; padding: 10px 0; border: none; border-radius: 50px;
+  font-family: 'Noto Sans KR', sans-serif; font-size: 14px; font-weight: 500;
+  cursor: pointer; transition: all 0.25s;
+  background: transparent; color: var(--gray-400); letter-spacing: -0.01em;
+}
+.tab-btn.active {
+  background: var(--kb-yellow); color: var(--kb-dark);
+  box-shadow: 0 4px 14px rgba(255,184,28,0.35);
+}
+.tab-pane { display: none; }
+.tab-pane.active { display: block; }
+
+/* ══ 기본정보 탭 ══ */
+.kakao-wrap { max-width: 420px; margin: 0 auto; }
+.kk-header {
+  background: var(--kb-yellow); border-radius: 20px 20px 0 0;
+  padding: 28px 24px 22px; position: relative; overflow: hidden;
+}
+.kk-header::before {
+  content: ''; position: absolute; right: -30px; top: -30px;
+  width: 140px; height: 140px; border-radius: 50%; background: rgba(0,0,0,0.05);
+}
+.kk-tag {
+  display: inline-block; background: rgba(0,0,0,0.08); color: var(--kb-dark);
+  font-size: 13px; font-weight: 500; padding: 4px 11px;
+  border-radius: 20px; letter-spacing: 0.05em; margin-bottom: 10px;
+}
+.kk-header h2 {
+  font-family: 'Noto Serif KR', serif; font-size: 25px; font-weight: 600;
+  color: var(--kb-dark); line-height: 1.35; margin-bottom: 6px;
+}
+.kk-header p { font-size: 15px; color: rgba(107,101,96,0.65); }
+.kk-total {
+  background: var(--kb-dark); padding: 16px 24px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.kk-total .label { font-size: 15px; color: rgba(255,255,255,0.6); }
+.kk-total .amount { font-size: 25px; font-weight: 700; color: var(--kb-yellow); letter-spacing: -0.02em; }
+.kk-total .amount span { font-size: 15px; font-weight: 400; color: rgba(255,255,255,0.6); margin-left: 2px; }
+
+/* 보험료 분해 */
+.kk-breakdown {
+  background: #5A554F; padding: 12px 24px;
+  display: flex; gap: 8px;
+}
+.kk-bd-item {
+  flex: 1; padding: 10px 12px;
+  background: rgba(255,255,255,0.05); border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.kk-bd-item .bd-label {
+  font-size: 11px; color: rgba(255,255,255,0.5);
+  margin-bottom: 4px; line-height: 1.3; word-break: keep-all;
+}
+.kk-bd-item .bd-amt {
+  font-size: 14px; font-weight: 700; color: var(--kb-yellow-light);
+  letter-spacing: -0.01em;
+}
+.kk-bd-item .bd-amt span { font-size: 11px; font-weight: 400; color: rgba(255,255,255,0.4); margin-left: 1px; }
+
+/* 시나리오 탭 */
+.scenario-bar { display: flex; background: var(--white); border-bottom: 2px solid var(--gray-200); border-top: 1px solid var(--gray-200); }
+.sc-btn {
+  flex: 1; padding: 13px 4px; border: none;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px; font-weight: 600; cursor: pointer;
+  background: transparent; color: var(--gray-400);
+  border-bottom: 3px solid transparent; margin-bottom: -2px;
+  transition: all 0.2s;
+}
+.sc-btn.active { color: var(--text); font-weight: 700; border-bottom-color: var(--kb-yellow); }
+.sc-body { display: none; background: #F5F3EF; }
+.sc-body.active { display: block; }
+.sc-items { padding: 14px 16px 18px; display: flex; flex-direction: column; gap: 10px; }
+.sc-block { background: var(--white); border-radius: 14px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+.sc-block-final { background: var(--kb-yellow-pale); border: 1.5px solid var(--kb-yellow-light); }
+.sc-block-silson { background: var(--kb-teal-light); border: 1.5px solid #B2DFDB; }
+.sc-block-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 9px 14px; background: #EFEDE8; border-bottom: 1px solid var(--gray-200);
+}
+.sc-block-silson .sc-block-header { background: #B2DFDB; }
+.sc-block-title { font-size: 14px; font-weight: 700; color: var(--text); }
+.sc-block-badge { font-size: 12px; color: var(--kb-dark-soft); background: var(--gray-200); padding: 2px 8px; border-radius: 10px; }
+.sc-block-silson .sc-block-badge { background: rgba(255,255,255,0.6); color: var(--kb-teal); }
+.sc-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 9px 14px; gap: 8px; border-bottom: 1px solid #F0EEE8;
+}
+.sc-row:last-of-type { border-bottom: none; }
+.sc-row-sub { background: #FAFAF7; }
+.sc-row-total { background: #EFEDE8; border-top: 1px solid var(--gray-200) !important; }
+.sc-row-grand { padding: 14px 16px; }
+.sc-row-name { font-size: 14.5px; color: var(--text); flex: 1; word-break: keep-all; line-height: 1.4; }
+.sc-row-amt { font-size: 14.5px; font-weight: 700; color: var(--kb-dark); white-space: nowrap; }
+.sc-row-amt.hi { color: #7B5800; }
+.sc-row-amt.silson { color: var(--kb-teal); }
+.sc-row-amt.grand { font-family: 'Noto Serif KR', serif; font-size: 20px; font-weight: 600; color: var(--kb-yellow-dark); }
+.sc-tag { display: inline-block; font-size: 11px; font-weight: 600; background: var(--kb-yellow-pale); color: var(--kb-yellow-dark); padding: 1px 6px; border-radius: 4px; margin-left: 4px; vertical-align: middle; }
+.sc-tag-silson { background: var(--kb-teal-light); color: var(--kb-teal); }
+.sc-note-inline { font-size: 12.5px; color: var(--gray-400); line-height: 1.6; padding: 4px 14px 10px; word-break: keep-all; }
+
+/* 푸터 */
+.kk-footer {
+  background: var(--gray-100); border-radius: 0 0 20px 20px;
+  padding: 16px 24px; display: flex; align-items: center; justify-content: space-between;
+  border-top: 1px solid var(--gray-200);
+}
+.kk-footer .agent { font-size: 13px; color: var(--gray-700); line-height: 1.6; }
+.kk-footer .agent strong { font-weight: 700; color: var(--text); display: block; }
+.kk-footer .call-btn {
+  display: inline-block; background: var(--kb-yellow); color: var(--kb-dark);
+  font-size: 14px; font-weight: 700; padding: 8px 16px; border-radius: 20px;
+  text-decoration: none;
+}
+
+/* ══ 상세 보장표 탭 ══ */
+.detail-wrap { max-width: 760px; margin: 0 auto; }
+.detail-header {
+  background: var(--kb-yellow); border-radius: 16px; padding: 24px 28px;
+  display: flex; justify-content: space-between; align-items: flex-end;
+  margin-bottom: 20px; position: relative; overflow: hidden;
+}
+.detail-header::before {
+  content: ''; position: absolute; right: -40px; top: -40px;
+  width: 180px; height: 180px; border-radius: 50%; background: rgba(0,0,0,0.04);
+}
+.detail-header .dh-left h1 {
+  font-family: 'Noto Serif KR', serif; font-size: 20px; font-weight: 600;
+  color: var(--kb-dark); margin-bottom: 4px; line-height: 1.4;
+}
+.detail-header .dh-left p { font-size: 14px; color: rgba(107,101,96,0.65); }
+.detail-header .dh-right { text-align: right; }
+.detail-header .dh-right .pl { font-size: 13px; color: rgba(107,101,96,0.65); margin-bottom: 2px; }
+.detail-header .dh-right .pv { font-size: 30px; font-weight: 700; color: var(--kb-dark); letter-spacing: -0.02em; }
+.detail-header .dh-right .pv span { font-size: 16px; font-weight: 400; }
+.detail-header .dh-right .pv-sub { font-size: 11px; color: rgba(107,101,96,0.65); margin-top: 2px; line-height: 1.4; }
+
+/* 카테고리 탭 */
+.cat-bar {
+  display: flex; gap: 6px; flex-wrap: wrap;
+  max-width: 760px; margin: 0 auto 20px; padding: 0;
+}
+.cat-btn {
+  padding: 8px 14px; border: 1.5px solid var(--gray-200); border-radius: 30px;
+  font-family: 'Noto Sans KR', sans-serif; font-size: 13px; font-weight: 500;
+  cursor: pointer; transition: all 0.2s;
+  background: var(--white); color: var(--gray-700);
+}
+.cat-btn.active {
+  border-color: var(--kb-yellow); background: var(--kb-yellow-pale); color: var(--kb-yellow-dark); font-weight: 700;
+}
+
+.section-title { display: flex; align-items: center; gap: 10px; margin: 24px 0 10px; }
+.sec-dot { display: none; }
+.section-title h3 { font-family: 'Noto Serif KR', serif; font-size: 17px; font-weight: 600; color: var(--text); }
+.section-title .count { margin-left: auto; font-size: 13.5px; color: var(--gray-400); background: var(--gray-100); padding: 2px 10px; border-radius: 20px; }
+
+/* 실손 섹션 강조 */
+.cat-section[data-cat="silson"] .section-title h3 { color: var(--kb-teal); }
+.cat-section[data-cat="silson"] .coverage-table { border-left: 3px solid var(--kb-teal); }
+
+.coverage-table {
+  width: 100%; border-collapse: collapse; border-radius: 12px; overflow: hidden;
+  background: var(--white); box-shadow: 0 1px 4px rgba(0,0,0,0.05); margin-bottom: 4px;
+}
+.coverage-table thead tr { background: var(--gray-100); }
+.coverage-table th { padding: 10px 14px; font-size: 14px; font-weight: 500; color: var(--gray-700); text-align: left; }
+.coverage-table th.right { text-align: right; }
+.coverage-table tbody tr { border-bottom: 1px solid var(--gray-100); }
+.coverage-table tbody tr:last-child { border-bottom: none; }
+.coverage-table tbody tr:hover { background: var(--kb-yellow-pale); transition: background 0.15s; }
+.coverage-table td { padding: 10px 14px; font-size: 15px; vertical-align: middle; }
+.coverage-table td.name { font-weight: 500; color: var(--text); word-break: keep-all; }
+.coverage-table td.amount { text-align: right; font-weight: 600; color: var(--kb-blue); white-space: nowrap; }
+.coverage-table td.price { text-align: right; font-weight: 700; color: var(--text); white-space: nowrap; }
+.coverage-table td.note { font-size: 13.5px; color: var(--gray-400); word-break: keep-all; }
+.subtotal-row { background: var(--kb-yellow-pale) !important; }
+.subtotal-row td { font-weight: 600 !important; color: var(--kb-yellow-dark) !important; }
+.cat-section[data-cat="silson"] .subtotal-row { background: var(--kb-teal-light) !important; }
+.cat-section[data-cat="silson"] .subtotal-row td { color: var(--kb-teal) !important; }
+
+.badge-sm { display: inline-block; font-size: 12px; font-weight: 700; padding: 1px 6px; border-radius: 3px; }
+.b-renewal { background: #FFF3E0; color: #E65100; }
+.b-fixed   { background: #E8F5E9; color: #2E7D32; }
+.b-1time   { background: #E3EEFF; color: #1565C0; }
+.b-yearly  { background: var(--kb-teal-light); color: var(--kb-teal); }
+.b-10y     { background: #F3E5F5; color: #6A1B9A; }
+.b-silson  { background: var(--kb-teal-light); color: var(--kb-teal); }
+
+.grand-total {
+  display: flex; justify-content: space-between; align-items: center;
+  background: var(--kb-dark); border-radius: 16px; padding: 22px 28px;
+  margin-top: 28px; flex-wrap: wrap; gap: 12px;
+}
+.grand-total .gt-left .label { font-size: 15px; color: rgba(255,255,255,0.5); margin-bottom: 4px; }
+.grand-total .gt-left .breakdown { font-size: 13.5px; color: rgba(255,255,255,0.35); }
+.grand-total .gt-right { text-align: right; }
+.grand-total .total-num { font-size: 34px; font-weight: 700; color: var(--kb-yellow); letter-spacing: -0.03em; }
+.grand-total .total-num span { font-size: 16px; font-weight: 400; color: rgba(255,255,255,0.5); margin-left: 2px; }
+.grand-total .per-day { font-size: 13px; color: rgba(255,255,255,0.35); margin-top: 4px; }
+
+.footnote {
+  margin-top: 20px; font-size: 13.5px; color: var(--gray-400); line-height: 1.85;
+  border-top: 1px dashed var(--gray-200); padding-top: 16px; word-break: keep-all;
+}
+
+@media (max-width: 600px) {
+  .detail-header { flex-direction: column; align-items: flex-start; gap: 10px; padding: 18px 16px; }
+  .detail-header .dh-left h1 { font-size: 16px; }
+  .detail-header .dh-left p { font-size: 12px; }
+  .detail-header .dh-right { text-align: left; }
+  .detail-header .dh-right .pv { font-size: 24px; }
+
+  .cat-bar { gap: 5px; }
+  .cat-btn { font-size: 12px; padding: 7px 10px; }
+
+  body { padding: 0.5rem 0.5rem 2rem; overflow-x: hidden; }
+  html { overflow-x: hidden; }
+  .tab-bar { margin: 0.5rem auto 1rem; }
+  .tab-pane, .detail-wrap, .kakao-wrap { max-width: 100%; overflow-x: hidden; }
+  .coverage-table, .coverage-table tbody, .coverage-table tr { width: 100%; max-width: 100%; }
+  .grand-total { overflow-x: hidden; }
+
+  .detail-wrap { padding: 0; }
+
+  .section-title { margin: 14px 0 6px; }
+  .section-title h3 { font-size: 14px; }
+  .section-title .count { font-size: 11px; padding: 2px 8px; }
+
+  .coverage-table { display: block; }
+  .coverage-table thead { display: none; }
+  .coverage-table tbody { display: block; }
+  .coverage-table tbody tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 0;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--gray-100);
+  }
+  .coverage-table tbody tr:last-child { border-bottom: none; }
+  .coverage-table td {
+    padding: 0; font-size: 13px; border: none;
+  }
+  .coverage-table td.name {
+    grid-column: 1 / -1;
+    font-size: 13px; font-weight: 600;
+    color: var(--text); margin-bottom: 5px;
+    word-break: keep-all; line-height: 1.4;
+  }
+  .coverage-table td.amount {
+    text-align: left; font-size: 13px; font-weight: 700; color: var(--kb-blue);
+  }
+  .coverage-table td.price {
+    text-align: right; font-size: 13px; color: var(--gray-700);
+  }
+  .coverage-table td.note {
+    grid-column: 1 / -1; font-size: 11px;
+    color: var(--gray-400); margin-top: 3px; word-break: keep-all;
+  }
+  .subtotal-row { grid-template-columns: 1fr 1fr !important; }
+  .subtotal-row td.name { grid-column: 1 / -1; margin-bottom: 3px; }
+  .subtotal-row td.note { display: none; }
+
+  .grand-total { flex-direction: column; padding: 18px 16px; }
+  .grand-total .gt-right { text-align: left; }
+  .grand-total .total-num { font-size: 26px; }
+
+  .footnote { font-size: 12px; }
+
+  .sc-btn { font-size: 11px; padding: 11px 3px; }
+  .kk-breakdown { flex-direction: column; gap: 6px; }
+}
+
+/* ══ 비교 탭 (기존 vs 신규) ══ */
+.cmp-wrap { max-width: 760px; margin: 0 auto; }
+.cmp-verdict {
+  background: var(--kb-dark); color: #fff; border-radius: 18px;
+  padding: 22px 24px; margin-bottom: 18px;
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+}
+.cmp-verdict .cv-col { flex: 1; min-width: 130px; }
+.cmp-verdict .cv-lab { font-size: 12px; color: rgba(255,255,255,.5); margin-bottom: 5px; }
+.cmp-verdict .cv-big { font-size: 22px; font-weight: 700; letter-spacing: -.02em; }
+.cmp-verdict .cv-from .cv-big { color: rgba(255,255,255,.55); }
+.cmp-verdict .cv-to .cv-big { color: var(--kb-yellow); }
+.cmp-verdict .cv-sub { font-size: 13px; color: rgba(255,255,255,.45); margin-top: 4px; }
+.cmp-verdict .cv-arrow { font-size: 24px; color: var(--kb-yellow); font-weight: 900; }
+
+.cmp-table-wrap { background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,.06); margin-bottom: 18px; }
+.cmp-table-wrap h3 { font-size: 15.5px; font-weight: 700; padding: 14px 18px 10px; color: var(--text); }
+table.cmp3 { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+table.cmp3 th, table.cmp3 td { padding: 11px 8px; text-align: center; border-bottom: 1px solid var(--gray-200); }
+table.cmp3 thead th { font-size: 13.5px; font-weight: 700; background: var(--gray-100); color: var(--gray-700); }
+table.cmp3 thead th.pick { background: var(--kb-teal); color: #fff; }
+table.cmp3 td.pick { background: var(--kb-teal-light); font-weight: 700; color: var(--kb-teal); }
+table.cmp3 td.old { color: var(--gray-400); }
+table.cmp3 .rl { text-align: left; font-weight: 700; color: var(--text); font-size: 14px; }
+table.cmp3 .x { color: var(--kb-red); font-weight: 900; }
+table.cmp3 .o { color: var(--kb-teal); font-weight: 900; }
+
+.reason-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 18px; }
+.reason-card { background: #fff; border-radius: 14px; padding: 14px 16px; box-shadow: 0 1px 3px rgba(0,0,0,.06); display: flex; gap: 13px; align-items: flex-start; }
+.reason-card .rc-num { flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%; background: var(--kb-yellow); color: var(--kb-dark); font-weight: 900; font-size: 15px; display: flex; align-items: center; justify-content: center; }
+.reason-card .rc-t { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+.reason-card .rc-d { font-size: 13.5px; color: var(--kb-dark-soft); line-height: 1.55; }
+.reason-card .rc-d b { color: var(--kb-teal); }
+
+.gap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; margin-bottom: 16px; }
+.gap-card { background: var(--kb-teal-light); border: 1px solid #B2DFDB; border-radius: 14px; padding: 13px 14px; }
+.gap-card .gc-t { font-size: 13.5px; font-weight: 700; color: var(--kb-teal); margin-bottom: 5px; }
+.gap-card .gc-amt { font-size: 18px; font-weight: 900; color: var(--text); letter-spacing: -.02em; }
+.gap-card .gc-d { font-size: 12.5px; color: var(--kb-dark-soft); margin-top: 4px; line-height: 1.45; }
+.gap-card.warn { background: #FCEBEA; border-color: #F3CFCD; }
+.gap-card.warn .gc-t { color: var(--kb-red); }
+
+.money-box { background: var(--kb-yellow-pale); border: 1px solid var(--kb-yellow-light); border-radius: 14px; padding: 15px 17px; margin-bottom: 8px; }
+.money-box .mb-t { font-size: 14px; font-weight: 700; color: var(--kb-yellow-dark); margin-bottom: 7px; }
+.money-box .mb-d { font-size: 13.5px; color: var(--text); line-height: 1.65; }
+.money-box .mb-d b { color: var(--kb-teal); font-weight: 700; }
+
+@media (max-width: 540px) {
+  .gap-grid { grid-template-columns: 1fr; }
+  table.cmp3 th, table.cmp3 td { padding: 9px 5px; font-size: 11.5px; }
+  .cmp-verdict { gap: 10px; }
+}
+
+/* 갱신 보험료 경고 박스 */
+.renew-warn { background:#FFF4F2; border:1px solid #F0C9C2; border-radius:16px; padding:18px 20px; margin-bottom:18px; }
+.renew-warn .rw-head { display:flex; align-items:center; gap:8px; margin-bottom:6px; }
+.renew-warn .rw-title { font-size:15.5px; font-weight:700; color:#C0392B; }
+.renew-warn .rw-sub { font-size:13.5px; color:var(--kb-dark-soft); line-height:1.55; margin-bottom:14px; }
+.renew-bars { display:flex; align-items:flex-end; gap:10px; height:160px; padding:0 4px 0; border-bottom:2px solid var(--gray-200); margin-bottom:8px; }
+.renew-bar { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; height:100%; }
+.renew-bar .rb-val { font-size:14px; font-weight:700; margin-bottom:5px; white-space:nowrap; }
+.renew-bar .rb-fill { width:100%; border-radius:7px 7px 0 0; min-height:6px; }
+.renew-bar.flat .rb-fill { background:var(--kb-teal); }
+.renew-bar.flat .rb-val { color:var(--kb-teal); }
+.renew-bar.up .rb-fill { background:linear-gradient(to top,#E88B7D,#C0392B); }
+.renew-bar.up .rb-val { color:#C0392B; }
+.renew-axis { display:flex; gap:10px; padding:0 4px; margin-bottom:12px; }
+.renew-axis span { flex:1; text-align:center; font-size:12.5px; color:var(--gray-400); line-height:1.3; }
+.renew-note { font-size:12.5px; color:var(--kb-dark-soft); line-height:1.6; background:rgba(255,255,255,.6); border-radius:9px; padding:10px 12px; }
+.renew-note b { color:#C0392B; }
+@media(max-width:540px){
+  .renew-bars{height:140px;gap:6px}
+  .renew-bar .rb-val{font-size:11px}
+  .renew-axis{gap:6px}
+  .renew-axis span{font-size:10px}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ 상단 탭바 ══ -->
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab('tab-compare', this)">🔄 기존 vs 제안</button>
+  <button class="tab-btn" onclick="switchTab('tab-basic', this)">📱 보장 상세</button>
+  <button class="tab-btn" onclick="switchTab('tab-detail', this)">📋 담보 전체표</button>
+</div>
+
+
+<!-- ════════ 탭 1: 기본정보 ════════ -->
+<div id="tab-basic" class="tab-pane">
+  <div class="kakao-wrap">
+
+    <div class="kk-header">
+      <div class="kk-tag">KB 5.10.10 Young 플러스 건강보험 (비갱신형)</div>
+      <h2>오연주 고객님<br>맞춤 보장 설계안</h2>
+      <p>30년납 100세만기 · 세만기 비갱신형 · 건강고지형(10년) · 12대 납입면제</p>
+    </div>
+
+    <div class="kk-total">
+      <div class="label">월 납입 보험료 (전 기간 고정)</div>
+      <div class="amount">162,320<span>원/월</span></div>
+    </div>
+
+    <div class="scenario-bar">
+      <button class="sc-btn active" onclick="showSc('sc-cancer', this)">일반암</button>
+      <button class="sc-btn" onclick="showSc('sc-similar', this)">유사암</button>
+      <button class="sc-btn" onclick="showSc('sc-brain', this)">뇌</button>
+      <button class="sc-btn" onclick="showSc('sc-heart', this)">심장</button>
+      <button class="sc-btn" onclick="showSc('sc-other', this)">입원·간병</button>
+    </div>
+
+    <!-- 일반암 -->
+    <div id="sc-cancer" class="sc-body active">
+      <div class="sc-items">
+        <div class="sc-block sc-block-final">
+          <div class="sc-row sc-row-grand">
+            <span class="sc-row-name">일반암 최대 수령 가능액</span>
+            <span class="sc-row-amt grand">약 4억 7,000만원 +α</span>
+          </div>
+          <div class="sc-note-inline">진단 5,000 + 항암(방사선·약물) + 중입자 5,000 + 표적약물 1억 + 비급여표적 1억 + CAR-T 5,000 + 주요치료비 Plus<br>※ 최초 수령 합산 기준 · 주요치료비 Plus(합산 1천만)는 수술·약물·방사선·중환자실 <b>항목마다 별도 누적</b>되어 +α</div>
+        </div>
+        <div class="sc-block">
+          <div class="sc-block-header"><span class="sc-block-title">진단 즉시</span><span class="sc-block-badge">최초 1회</span></div>
+          <div class="sc-row"><span class="sc-row-name">암진단비 (유사암 제외)</span><span class="sc-row-amt hi">5,000만원</span></div>
+          <div class="sc-note-inline">현재 보험도 5,000만이나 56세(2049년) 종료 — 신규는 100세까지 보장</div>
+        </div>
+        <div class="sc-block">
+          <div class="sc-block-header"><span class="sc-block-title">최신 표적·중입자 치료</span><span class="sc-block-badge">최초 1회</span></div>
+          <div class="sc-row"><span class="sc-row-name">표적항암약물허가치료비</span><span class="sc-row-amt">1억원</span></div>
+          <div class="sc-row"><span class="sc-row-name">비급여 표적항암약물허가치료비</span><span class="sc-row-amt">1억원</span></div>
+          <div class="sc-row"><span class="sc-row-name">항암중입자방사선치료비</span><span class="sc-row-amt">5,000만원</span></div>
+          <div class="sc-row sc-row-sub"><span class="sc-row-name">CAR-T 항암약물치료비 <span class="sc-tag">연간1회</span></span><span class="sc-row-amt">5,000만원</span></div>
+          <div class="sc-note-inline">표적양성자(3,000만)·세기조절방사선(2,000만) 별도 추가 · <b>현재 보험엔 전부 없음</b></div>
+        </div>
+        <div class="sc-block">
+          <div class="sc-block-header"><span class="sc-block-title">항암치료 (급여·비급여)</span><span class="sc-block-badge">각 최초 1회</span></div>
+          <div class="sc-row"><span class="sc-row-name">항암방사선치료비</span><span class="sc-row-amt">1,000만원</span></div>
+          <div class="sc-row"><span class="sc-row-name">항암약물치료비</span><span class="sc-row-amt">1,000만원</span></div>
+          <div class="sc-note-inline">현재 보험은 항암방사선·약물 각 500만 (56세 종료)</div>
+        </div>
+        <div class="sc-block">
+          <div class="sc-block-header"><span class="sc-block-title">암 주요치료비 Plus (항목별 지급)</span><span class="sc-block-badge">치료마다 누적</span></div>
+          <div class="sc-row sc-row-sub"><span class="sc-row-name">암 주요치료비 Plus · 1천만 가입 (제외형 700 + 포함형 300)</span><span class="sc-row-amt"></span></div>
+          <div class="sc-row"><span class="sc-row-name">└ 수술 <span class="sc-tag">수술 1회당</span></span><span class="sc-row-amt">1,000만원</span></div>
+          <div class="sc-row"><span class="sc-row-name">└ 항암방사선치료 <span class="sc-tag">연간1회</span></span><span class="sc-row-amt">1,000만원</span></div>
+          <div class="sc-row"><span class="sc-row-name">└ 항암약물치료 <span class="sc-tag">연간1회</span></span><span class="sc-row-amt">1,000만원</span></div>
+          <div class="sc-row"><span class="sc-row-name">└ 항암호르몬약물치료 <span class="sc-tag">연간1회</span></span><span class="sc-row-amt">300만원</span></div>
+          <div class="sc-row"><span class="sc-row-name">└ 중환자실치료(50%) <span class="sc-tag">연간1회</span></span><span class="sc-row-amt">500만원</span></div>
+          <div class="sc-row sc-row-total"><span class="sc-row-name">예) 수술+방사선+약물 모두 받으면</span><span class="sc-row-amt hi">3,000만원↑</span></div>
+          <div class="sc-note-inline"><b>각 치료를 받을 때마다 항목별로 지급</b>합니다. 수술은 1회당, 항암방사선·약물·중환자실(50%)은 각 연간 1회. 여러 치료를 받으면 합산되어 수령액이 커집니다 · <b>현재 보험엔 없는 신규 구조</b></div>
+        </div>
+        <div class="sc-block">
+          <div class="sc-block-header"><span class="sc-block-title">비급여 암 주요치료비 Plus (항목별 지급)</span><span class="sc-block-badge">치료마다 누적</span></div>
+          <div class="sc-row sc-row-sub"><span class="sc-row-name">비급여 암 주요치료비 Plus · 2천만 가입</span><span class="sc-row-amt"></span></div>
+          <div class="sc-row"><span class="sc-row-name">└ 암수술 <span class="sc-tag">수술 1회당</span></span><span class="sc-row-amt">2,000만원</span></div>
+          <div class="sc-row"><span class="sc-row-name">└ 항암방사선치료 <span class="sc-tag">연간1회</span></span><span class="sc-row-amt">2,000만원</span></div>
+          <div class="sc-row"><span class="sc-row-name">└ 항암약물치료 <span class="sc-tag">연간1회</span></span><span class="sc-row-amt">2,000만원</span></div>
+          <div class="sc-row sc-row-sub"><span class="sc-row-name">비급여 암 특정주요치료비 Plus · 1천만 가입</span><span class="sc-row-amt"></span></div>
+          <div class="sc-row"><span class="sc-row-name">└ 표적·면역항암·양성자 <span class="sc-tag">비급여 300%</span></span><span class="sc-row-amt hi">3,000만원</span></div>
+          <div class="sc-row"><span class="sc-row-name">└ 다빈치로봇 암수술 <span class="sc-tag">수술 1회당</span></span><span class="sc-row-amt">1,000만원</span></div>
+          <div class="sc-note-inline">특정주요치료는 비급여 치료 시 가입금액의 <b>최대 300%</b>까지 지급(1년 이상 경과 시). 수술·항암·표적이 각각 별도로 나옵니다 · <b>현재 보험엔 없는 신규 구조</b></div>
+        </div>
+        <div class="sc-block">
+          <div class="sc-block-header"><span class="sc-block-title">수술 (반복 가능)</span><span class="sc-block-badge">매회 지급</span></div>
+          <div class="sc-row"><span class="sc-row-name">질병1~5종수술비Ⅱ (5종) <span class="sc-tag">매회</span></span><span class="sc-row-amt">1,000만원</span></div>
+          <div class="sc-row"><span class="sc-row-name">질병수술비</span><span class="sc-row-amt">30만원</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 유사암 -->
+    <div id="sc-similar" class="sc-body">
+      <div class="sc-items">
+        <div class="sc-block sc-block-final">
+          <div class="sc-row sc-row-grand"><span class="sc-row-name">유사암 최대 수령 가능액</span><span class="sc-row-amt grand">약 2,500만원 +α</span></div>
+          <div class="sc-note-inline">유사암진단 1,000 + 유사암 주요치료비 Plus(항목별) + 갑상선암 비급여 주요치료비 + 양성종양·용종 진단 별도</div>
+        </div>
+        <div class="sc-block">
+          <div class="sc-block-header"><span class="sc-block-title">진단 즉시</span><span class="sc-block-badge">각 최초 1회</span></div>
+          <div class="sc-row"><span class="sc-row-name">유사암진단비 (기타피부·갑상선·제자리·경계성)</span><span class="sc-row-amt hi">1,000만원</span></div>
+          <div class="sc-note-inline">현재 보험은 유사암 2,000만이나 56세 종료 — 신규는 100세까지</div>
+        </div>
+        <div class="sc-block">
+          <div class="sc-block-header"><span class="sc-block-title">양성종양·용종</span><span class="sc-block-badge">연간1회</span></div>
+          <div class="sc-row"><span class="sc-row-name">대장 양성종양 및 용종진단비</span><span class="sc-row-amt">20만원</span></div>
+          <div class="sc-row"><span class="sc-row-name">위·십이지장 양성종양 및 용종진단비</span><span class="sc-row-amt">10만원</span></div>
+          <div class="sc-row"><span class="sc-row-name">양성뇌종양진단비</span><span class="sc-row-amt">500만원</span></div>
+          <div class="sc-note-inline">대장·위 용종은 연간 1회 반복 보장 · <b>현재 보험엔 없음</b></div>
+        </div>
+        <div class="sc-block">
+          <div class="sc-block-header"><span class="sc-block-title">유사암 주요치료비 Plus (항목별 지급)</span><span class="sc-block-badge">치료마다 누적</span></div>
+          <div class="sc-row sc-row-sub"><span class="sc-row-name">유사암 주요치료비 Plus · 4백만 가입 (제외형 300 + 포함형 100)</span><span class="sc-row-amt"></span></div>
+          <div class="sc-row"><span class="sc-row-name">└ 수술 <span class="sc-tag">수술 1회당</span></span><span class="sc-row-amt">400만원</span></div>
+          <div class="sc-row"><span class="sc-row-name">└ 항암방사선치료 <span class="sc-tag">연간1회</span></span><span class="sc-row-amt">400만원</span></div>
+          <div class="sc-row"><span class="sc-row-name">└ 항암약물치료 <span class="sc-tag">연간1회</span></span><span class="sc-row-amt">400만원</span></div>
+          <div class="sc-row"><span class="sc-row-name">└ 항암호르몬약물치료 <span class="sc-tag">연간1회</span></span><span class="sc-row-amt">100만원</span></div>
+          <div class="sc-row"><span class="sc-row-name">└ 중환자실치료(50%) <span class="sc-tag">연간1회</span></span><span class="sc-row-amt">200만원</span></div>
+          <div class="sc-note-inline">유사암도 진단만이 아니라 <b>치료 단계마다 항목별로 지급</b>됩니다 (수술 1회당, 항암·중환자실 각 연간 1회)</div>
+        </div>
+        <div class="sc-block">
+          <div class="sc-block-header"><span class="sc-block-title">비급여 암 주요치료비 Plus (갑상선암 등)</span><span class="sc-block-badge">치료마다 누적</span></div>
+          <div class="sc-row sc-row-sub"><span class="sc-row-name">비급여 암 주요치료비 Plus · 2천만 가입 (갑상선암 20%)</span><span class="sc-row-amt"></span></div>
+          <div class="sc-row"><span class="sc-row-name">└ 암수술 <span class="sc-tag">수술 1회당</span></span><span class="sc-row-amt">400만원</span></div>
+          <div class="sc-row"><span class="sc-row-name">└ 항암방사선치료 <span class="sc-tag">연간1회</span></span><span class="sc-row-amt">400만원</span></div>
+          <div class="sc-row"><span class="sc-row-name">└ 항암약물치료 <span class="sc-tag">연간1회</span></span><span class="sc-row-amt">400만원</span></div>
+          <div class="sc-row sc-row-sub"><span class="sc-row-name">비급여 암 특정주요치료비 Plus · 1천만 가입</span><span class="sc-row-amt"></span></div>
+          <div class="sc-row"><span class="sc-row-name">└ 표적·면역항암 <span class="sc-tag">갑상선암 60%</span></span><span class="sc-row-amt hi">600만원</span></div>
+          <div class="sc-row"><span class="sc-row-name">└ 다빈치로봇 암수술 <span class="sc-tag">갑상선 20%</span></span><span class="sc-row-amt">200만원</span></div>
+          <div class="sc-note-inline">유사암 중 <b>갑상선암</b>도 비급여 주요치료비 대상입니다. 진단비 1,000만과 <b>별도로 추가</b> 수령됩니다</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 뇌 -->
+    <div id="sc-brain" class="sc-body">
+      <div class="sc-items">
+        <div class="sc-block sc-block-final">
+          <div class="sc-row sc-row-grand"><span class="sc-row-name">뇌혈관질환 최대 수령</span><span class="sc-row-amt grand">약 8,000만원 +α</span></div>
+          <div class="sc-note-inline">진단 2,000 + 신특정순환계 주요치료비(수술·혈전·중환자실 항목별 누적) + 양성뇌종양 500 + 납입면제<br>※ 치료를 여러 항목 받을수록 수령액 증가</div>
+        </div>
+        <div class="sc-block">
+          <div class="sc-block-header"><span class="sc-block-title">진단 즉시</span><span class="sc-block-badge">최초 1회</span></div>
+          <div class="sc-row"><span class="sc-row-name">뇌혈관질환진단비 (감액없음)</span><span class="sc-row-amt hi">2,000만원</span></div>
+          <div class="sc-note-inline">거미막하·뇌내출혈·뇌경색 등 포괄 보장 · 현재 보험은 56세 종료</div>
+        </div>
+        <div class="sc-block">
+          <div class="sc-block-header"><span class="sc-block-title">신특정순환계질환 주요치료비 (항목별 지급)</span><span class="sc-block-badge">치료마다 누적</span></div>
+          <div class="sc-row sc-row-sub"><span class="sc-row-name">신특정순환계 주요치료비 Plus (2천만 가입)</span><span class="sc-row-amt"></span></div>
+          <div class="sc-row"><span class="sc-row-name">└ 수술(혈전제거 제외) <span class="sc-tag">수술 1회당</span></span><span class="sc-row-amt">2,000만원</span></div>
+          <div class="sc-row"><span class="sc-row-name">└ 혈전제거술 <span class="sc-tag">수술 1회당</span></span><span class="sc-row-amt">2,000만원</span></div>
+          <div class="sc-row"><span class="sc-row-name">└ 뇌혈관 혈전용해치료 <span class="sc-tag">연간1회</span></span><span class="sc-row-amt">2,000만원</span></div>
+          <div class="sc-row"><span class="sc-row-name">└ 종합병원 중환자실치료(50%) <span class="sc-tag">연간1회</span></span><span class="sc-row-amt">1,000만원</span></div>
+          <div class="sc-note-inline"><b>치료 항목마다 각각 지급</b>됩니다. 수술 후 혈전용해·중환자실까지 받으면 합산되어 수령액이 커집니다 · <b>현재 보험엔 없는 신규 보장</b></div>
+        </div>
+        <div class="sc-block sc-block-silson">
+          <div class="sc-block-header"><span class="sc-block-title">💡 납입면제 발동</span><span class="sc-block-badge">12대 면제</span></div>
+          <div class="sc-row"><span class="sc-row-name">뇌혈관질환 진단 시 이후 보험료 면제</span><span class="sc-row-amt silson">면제</span></div>
+          <div class="sc-note-inline">현재 보험엔 없는 혜택 — 진단 후 남은 보험료를 내지 않습니다</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 심장 -->
+    <div id="sc-heart" class="sc-body">
+      <div class="sc-items">
+        <div class="sc-block sc-block-final">
+          <div class="sc-row sc-row-grand"><span class="sc-row-name">심장질환 최대 수령</span><span class="sc-row-amt grand">약 9,000만원 +α</span></div>
+          <div class="sc-note-inline">특정Ⅰ 1,000 + 특정Ⅱ 2,000 + 신특정순환계 주요치료비(수술·혈전·중환자실 항목별 누적) + 납입면제<br>※ 치료를 여러 항목 받을수록 수령액 증가</div>
+        </div>
+        <div class="sc-block">
+          <div class="sc-block-header"><span class="sc-block-title">진단 즉시</span><span class="sc-block-badge">각 최초 1회</span></div>
+          <div class="sc-row"><span class="sc-row-name">심장질환(특정Ⅰ)진단비 — 협심증 등</span><span class="sc-row-amt hi">1,000만원</span></div>
+          <div class="sc-row"><span class="sc-row-name">심장질환(특정Ⅱ)진단비 — 급성심근경색 등</span><span class="sc-row-amt hi">2,000만원</span></div>
+          <div class="sc-note-inline">현재 보험은 허혈성심장 단일 진단비뿐 + 56세 종료 → 신규는 특정Ⅰ·Ⅱ 세분화 100세</div>
+        </div>
+        <div class="sc-block">
+          <div class="sc-block-header"><span class="sc-block-title">신특정순환계질환 주요치료비 (항목별 지급)</span><span class="sc-block-badge">치료마다 누적</span></div>
+          <div class="sc-row sc-row-sub"><span class="sc-row-name">신특정순환계 주요치료비 Plus (2천만 가입)</span><span class="sc-row-amt"></span></div>
+          <div class="sc-row"><span class="sc-row-name">└ 수술(혈전제거 제외) <span class="sc-tag">수술 1회당</span></span><span class="sc-row-amt">2,000만원</span></div>
+          <div class="sc-row"><span class="sc-row-name">└ 혈전제거술 <span class="sc-tag">수술 1회당</span></span><span class="sc-row-amt">2,000만원</span></div>
+          <div class="sc-row"><span class="sc-row-name">└ 심장 혈전용해치료 <span class="sc-tag">연간1회</span></span><span class="sc-row-amt">2,000만원</span></div>
+          <div class="sc-row"><span class="sc-row-name">└ 종합병원 중환자실치료(50%) <span class="sc-tag">연간1회</span></span><span class="sc-row-amt">1,000만원</span></div>
+          <div class="sc-note-inline"><b>치료 항목마다 각각 지급</b>됩니다. 스텐트·혈전용해·중환자실 입원을 함께 받으면 합산 수령 · <b>현재 보험엔 없는 신규 보장</b></div>
+        </div>
+        <div class="sc-block sc-block-silson">
+          <div class="sc-block-header"><span class="sc-block-title">💡 납입면제 발동</span><span class="sc-block-badge">12대 면제</span></div>
+          <div class="sc-row"><span class="sc-row-name">허혈성심장질환 진단 시 보험료 면제</span><span class="sc-row-amt silson">면제</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 입원·간병 -->
+    <div id="sc-other" class="sc-body">
+      <div class="sc-items">
+        <div class="sc-block sc-block-final">
+          <div class="sc-row sc-row-grand"><span class="sc-row-name">입원 1일당 받는 금액</span><span class="sc-row-amt grand">하루 5만~20만</span></div>
+          <div class="sc-note-inline">어느 병원에·며칠·간병인 사용 여부에 따라 일당이 달라지고 <b>여러 담보가 같은 날 합산</b>됩니다 · 현재 보험은 단순 입원일당 2만/일뿐</div>
+        </div>
+        <div class="sc-block">
+          <div class="sc-block-header"><span class="sc-block-title">상황별 하루 수령액 (질병입원 예시)</span><span class="sc-block-badge">합산 지급</span></div>
+          <div class="sc-row"><span class="sc-row-name">일반병원 입원 + 간병인 사용 (1~180일)</span><span class="sc-row-amt hi">하루 10만</span></div>
+          <div class="sc-row"><span class="sc-row-name">상급종합병원 입원 + 간병인 (1~180일)</span><span class="sc-row-amt hi">하루 20만</span></div>
+          <div class="sc-row sc-row-sub"><span class="sc-row-name" style="font-size:12px;color:var(--gray-700)">└ 간병인사용 10만 + 상급종합 간병인 10만 합산</span><span class="sc-row-amt"></span></div>
+          <div class="sc-row"><span class="sc-row-name">요양병원 입원 + 간병인 사용</span><span class="sc-row-amt hi">하루 5만</span></div>
+          <div class="sc-row"><span class="sc-row-name">181일 이상 장기입원 (요양·정신·한방 제외)</span><span class="sc-row-amt">하루 10만</span></div>
+          <div class="sc-note-inline">간병인 8시간 이상 사용 시 100%, 미만은 50% 지급. 간병인 없이 간호간병통합서비스 이용 시엔 하루 7만</div>
+        </div>
+        <div class="sc-block">
+          <div class="sc-block-header"><span class="sc-block-title">담보별 일당 (가입금액 기준)</span><span class="sc-block-badge">1일당</span></div>
+          <div class="sc-row"><span class="sc-row-name">간병인사용 질병/상해입원일당Ⅱ (요양 제외)</span><span class="sc-row-amt">10만원</span></div>
+          <div class="sc-row"><span class="sc-row-name">상급종합병원 간병인 질병/상해입원일당</span><span class="sc-row-amt">10만원</span></div>
+          <div class="sc-row"><span class="sc-row-name">간병인사용 입원일당 (요양병원)</span><span class="sc-row-amt">5만원</span></div>
+          <div class="sc-row"><span class="sc-row-name">간호간병통합서비스 질병/상해입원일당</span><span class="sc-row-amt">7만원</span></div>
+          <div class="sc-row"><span class="sc-row-name">상해중환자실 입원일당Ⅱ</span><span class="sc-row-amt">20만원</span></div>
+          <div class="sc-note-inline"><b>현재 보험엔 없는 신규 보장</b> — 입원처(요양/일반/상급종합)와 기간(1~180일 / 181일 이상)을 구분해 촘촘하게 보장</div>
+        </div>
+        <div class="sc-block">
+          <div class="sc-block-header"><span class="sc-block-title">기타 치료·진단</span><span class="sc-block-badge">사고·진단당</span></div>
+          <div class="sc-row"><span class="sc-row-name">깁스치료비 · 골절철심제거수술비</span><span class="sc-row-amt">50만원</span></div>
+          <div class="sc-row"><span class="sc-row-name">대상포진진단비 · 대상포진눈병진단비</span><span class="sc-row-amt">100~300만</span></div>
+          <div class="sc-row"><span class="sc-row-name">독감 항바이러스제 치료비</span><span class="sc-row-amt">20만원</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div><!-- /tab-basic -->
+
+
+<!-- ════════ 탭 2: 기존 vs 신규 비교 ════════ -->
+<div id="tab-compare" class="tab-pane active">
+  <div class="cmp-wrap">
+
+    <div class="cmp-verdict">
+      <div class="cv-col cv-from">
+        <div class="cv-lab">현재 가입 · The드림365 (19.09)</div>
+        <div class="cv-big">56세에 종료</div>
+        <div class="cv-sub">전 담보 갱신형 · 2049-11-25 만기</div>
+      </div>
+      <div class="cv-arrow">→</div>
+      <div class="cv-col cv-to">
+        <div class="cv-lab">제안 · Young 플러스 비갱신</div>
+        <div class="cv-big">100세 평생보장</div>
+        <div class="cv-sub">보험료 고정 · 12대 납입면제</div>
+      </div>
+    </div>
+
+    <div class="cmp-table-wrap">
+      <h3>한눈에 비교</h3>
+      <div style="padding:0 18px 12px;font-size:13.5px;color:var(--kb-dark-soft);line-height:1.55">제안(비갱신)과 참고(갱신형)는 <b>담보 구성·가입금액이 동일</b>합니다. 보장 내용은 같고 <b>보험료 방식(고정 vs 갱신)과 해지환급금</b>에서 갈립니다.</div>
+      <table class="cmp3">
+        <thead>
+          <tr>
+            <th class="rl" style="background:var(--gray-100)">항목</th>
+            <th>현재 보험</th>
+            <th class="pick">제안 · 비갱신 ✓</th>
+            <th>참고 · 갱신형</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="rl">보장 만기</td><td class="old"><span class="x">56세</span> (2049)</td><td class="pick">100세</td><td>110세 (갱신)</td></tr>
+          <tr><td class="rl">보험료 변동</td><td class="old">갱신마다 인상</td><td class="pick">전기간 고정</td><td>갱신마다 인상</td></tr>
+          <tr><td class="rl">월 보험료</td><td class="old">76,000원</td><td class="pick">162,320원</td><td>93,880원</td></tr>
+          <tr><td class="rl">납입면제</td><td class="old"><span class="x">없음</span></td><td class="pick">12대 <span class="o">○</span></td><td>12대 ○</td></tr>
+          <tr><td class="rl">해약환급</td><td class="old">거의 없음</td><td class="pick">납입후 1,764만원<br>(63세 30.3%)</td><td>0원</td></tr>
+        </tbody>
+      </table>
+      <div style="padding:13px 18px 17px;font-size:13.5px;color:var(--text);line-height:1.65;border-top:1px solid var(--gray-200)">💡 <b>같은 보장인데</b>, 갱신형은 30년 납입 후 환급금이 <b>0원</b>이지만 비갱신형은 <b style="color:var(--kb-teal)">1,764만원</b>이 쌓입니다. 월 차액(약 6.6만원)이 사라지지 않고 환급금으로 돌아오는 셈입니다.</div>
+    </div>
+
+    <div class="renew-warn">
+      <div class="rw-head">
+        <span style="font-size:18px">⚠️</span>
+        <span class="rw-title">갱신형의 함정 — 30년마다 갱신, 가장 비싼 나이에 폭등</span>
+      </div>
+      <div class="rw-sub">갱신형은 지금은 93,880원으로 싸 보이지만 <b style="color:#C0392B">30년마다 한 번씩 110세까지 갱신</b>됩니다. 첫 갱신이 만 63세, 다음이 93세 — 암·뇌·심장 위험률이 가장 높은 나이에 보험료가 크게 뛰고, 그 비싼 보험료를 다음 갱신까지 30년간 계속 냅니다.</div>
+
+      <div class="renew-bars">
+        <div class="renew-bar flat"><div class="rb-val">9.4만</div><div class="rb-fill" style="height:16%"></div></div>
+        <div class="renew-bar up"><div class="rb-val">약 35만</div><div class="rb-fill" style="height:55%"></div></div>
+        <div class="renew-bar up"><div class="rb-val">약 65만↑</div><div class="rb-fill" style="height:100%"></div></div>
+      </div>
+      <div class="renew-axis">
+        <span>가입<br>33~62세</span>
+        <span>1차 갱신<br>63~92세</span>
+        <span>2차 갱신<br>93~110세</span>
+      </div>
+      <div class="renew-note">
+        ※ 갱신형은 30년 주기(33→63→93세)로 갱신되며, 위 보험료는 연령별 위험률 상승을 반영한 <b>추정 예시</b>입니다. 실제 갱신 시점의 요율·의료수가·손해율에 따라 달라집니다. 반면 <b style="color:var(--kb-teal)">제안 비갱신형은 30년 납입 162,320원 고정</b>이고, 납입이 끝난 63세 이후에는 추가 납입 없이 100세까지 보장됩니다.
+      </div>
+    </div>
+
+    <div class="reason-list">
+      <div class="reason-card">
+        <div class="rc-num">1</div>
+        <div><div class="rc-t">평생 보험료가 오르지 않습니다</div>
+          <div class="rc-d">한번 정한 162,320원이 30년 내내 그대로이고, 납입이 끝나면 100세까지 추가 부담이 없습니다. 위 갱신 그래프처럼 노년에 보험료가 뛸 걱정이 없습니다.</div></div>
+      </div>
+      <div class="reason-card">
+        <div class="rc-num">2</div>
+        <div><div class="rc-t">56세 보장 공백을 100세까지 메웁니다</div>
+          <div class="rc-d">현재 보험은 2049년(56세) 종료. 암·뇌·심장 발생이 급증하는 60대 이후가 통째로 비어 있습니다. 비갱신형은 100세까지 처음부터 확정 보장.</div></div>
+      </div>
+      <div class="reason-card">
+        <div class="rc-num">3</div>
+        <div><div class="rc-t">큰 병 진단 시 보험료가 면제됩니다</div>
+          <div class="rc-d">현재 보험엔 없는 <b>12대 납입면제</b>. 암·뇌혈관·허혈성심장 등 진단 시 이후 보장보험료가 면제되어, 아플 때 납입 부담이 사라집니다.</div></div>
+      </div>
+    </div>
+
+    <div class="gap-grid">
+      <div class="gap-card">
+        <div class="gc-t">최신 표적·면역 항암</div>
+        <div class="gc-amt">최대 2억 5천</div>
+        <div class="gc-d">표적약물 1억 + 비급여표적 1억 + 중입자 5천 + CAR-T 5천 (현재: 항암 각 500만뿐)</div>
+      </div>
+      <div class="gap-card">
+        <div class="gc-t">주요치료비 Plus</div>
+        <div class="gc-amt">연간 반복 보장</div>
+        <div class="gc-d">암·신특정순환계 수술·항암·중환자실을 연 1회씩 반복 지급</div>
+      </div>
+      <div class="gap-card">
+        <div class="gc-t">간병인·간호간병통합</div>
+        <div class="gc-amt">입원일당 강화</div>
+        <div class="gc-d">간병인 사용·상급종합병원·요양병원 구분 보장 신규 (현재: 입원일당 2만/일)</div>
+      </div>
+      <div class="gap-card warn">
+        <div class="gc-t">⚠ 현재 보험의 한계</div>
+        <div class="gc-amt">56세 이후 무보장</div>
+        <div class="gc-d">전 담보 30년갱신형이라 2049년 만기. 노년기 의료비 위험 구간이 비어 있습니다</div>
+      </div>
+    </div>
+
+    <div class="money-box">
+      <div class="mb-t">💰 보험료 차액, 이렇게 보세요</div>
+      <div class="mb-d">월 차액은 약 6.6만원이지만, 이는 ① 보험료를 <b>평생 고정</b>시키고 ② 100세까지 보장을 <b>확정</b>하며 ③ 납입후 <b>50% 환급</b>(63세 시점 1,764만원)까지 쌓는 비용입니다. 갱신형은 지금 싸 보여도 노년에 보험료가 폭등하고 환급금은 0원입니다.</div>
+    </div>
+
+  </div>
+</div><!-- /tab-compare -->
+
+
+<!-- ════════ 탭 3: 상세 보장표 ════════ -->
+<div id="tab-detail" class="tab-pane">
+  <div class="detail-wrap">
+
+    <div class="detail-header">
+      <div class="dh-left">
+        <h1>오연주 고객 상세 보장표</h1>
+        <p>KB 5.10.10 Young 플러스 건강보험(26.04) · 세만기 비갱신형 · 30년납 100세만기</p>
+      </div>
+      <div class="dh-right">
+        <div class="pl">월 납입 보험료 (전기간 고정)</div>
+        <div class="pv">162,320<span>원</span></div>
+        <div class="pv-sub">청약번호 RQ26-39356104</div>
+      </div>
+    </div>
+
+    <div class="cat-bar">
+      <button class="cat-btn active" onclick="switchCat('cat-all', this)">전체</button>
+      <button class="cat-btn" onclick="switchCat('cat-cancer', this)">🎗 암</button>
+      <button class="cat-btn" onclick="switchCat('cat-cardio', this)">❤️ 뇌·심장</button>
+      <button class="cat-btn" onclick="switchCat('cat-hosp', this)">🏥 입원·간병</button>
+      <button class="cat-btn" onclick="switchCat('cat-other', this)">⚡ 기타</button>
+    </div>
+
+    <!-- 1. 사망·후유장해·납입면제 -->
+    <div class="cat-section" data-cat="other">
+      <div class="section-title"><h3>1. 사망 · 후유장해 · 납입면제</h3><span class="count">5개 담보</span></div>
+      <table class="coverage-table">
+        <thead><tr><th style="width:46%;">담보명</th><th class="right" style="width:18%;">가입금액</th><th class="right" style="width:14%;">월 보험료</th><th style="width:22%;">비고</th></tr></thead>
+        <tbody>
+          <tr><td class="name">[기본] 일반상해사망</td><td class="amount">1억원</td><td class="price">1,500원</td><td class="note"><span class="badge-sm b-fixed">100세</span></td></tr>
+          <tr><td class="name">[기본] 일반상해후유장해 (3~100%)</td><td class="amount">5,000만원</td><td class="price">1,500원</td><td class="note">장해율 비례</td></tr>
+          <tr><td class="name">[기본] 일반상해후유장해 (20~100%)</td><td class="amount">100만원</td><td class="price">13원</td><td class="note">장해율 비례</td></tr>
+          <tr><td class="name">보험료납입면제 (12대)</td><td class="amount">10만원</td><td class="price">100원</td><td class="note"><span class="badge-sm b-fixed">신규 혜택</span> 암·뇌·심장 등 12대</td></tr>
+          <tr><td class="name">보험료납입지원 (유사암진단)</td><td class="amount">가입 7.8만</td><td class="price">4,566원</td><td class="note">유사암 시 납입지원</td></tr>
+          <tr class="subtotal-row"><td class="name">소계</td><td class="amount">—</td><td class="price">7,679원</td><td class="note"></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 2. 암 진단·치료 -->
+    <div class="cat-section" data-cat="cancer">
+      <div class="section-title"><h3>2. 암 진단 · 항암 치료</h3><span class="count">15개 담보</span></div>
+      <table class="coverage-table">
+        <thead><tr><th style="width:46%;">담보명</th><th class="right" style="width:18%;">가입금액</th><th class="right" style="width:14%;">월 보험료</th><th style="width:22%;">비고</th></tr></thead>
+        <tbody>
+          <tr><td class="name">암진단비 (유사암 제외)</td><td class="amount">5,000만원</td><td class="price">29,550원</td><td class="note"><span class="badge-sm b-fixed">100세</span> 최초1회</td></tr>
+          <tr><td class="name">유사암진단비</td><td class="amount">1,000만원</td><td class="price">4,170원</td><td class="note">각 최초1회</td></tr>
+          <tr><td class="name">항암방사선치료비</td><td class="amount">1,000만원</td><td class="price">1,660원</td><td class="note">최초1회</td></tr>
+          <tr><td class="name">항암약물치료비</td><td class="amount">1,000만원</td><td class="price">2,450원</td><td class="note">최초1회</td></tr>
+          <tr><td class="name">항암중입자방사선치료비</td><td class="amount">5,000만원</td><td class="price">800원</td><td class="note"><span class="badge-sm b-fixed">신규</span> 최초1회</td></tr>
+          <tr><td class="name">표적항암방사선치료비 (세기조절)</td><td class="amount">2,000만원</td><td class="price">1,700원</td><td class="note">최초1회</td></tr>
+          <tr><td class="name">표적항암방사선치료비 (양성자)</td><td class="amount">3,000만원</td><td class="price">564원</td><td class="note">최초1회</td></tr>
+          <tr><td class="name">표적항암약물허가치료비</td><td class="amount">1억원</td><td class="price">13,180원</td><td class="note"><span class="badge-sm b-fixed">신규</span> 최초1회</td></tr>
+          <tr><td class="name">비급여 표적항암약물허가치료비</td><td class="amount">1억원</td><td class="price">4,190원</td><td class="note"><span class="badge-sm b-fixed">신규</span> 최초1회</td></tr>
+          <tr><td class="name">CAR-T 항암약물허가치료비</td><td class="amount">5,000만원</td><td class="price">50원</td><td class="note"><span class="badge-sm b-renewal">10년갱신</span> 연간1회</td></tr>
+          <tr><td class="name">암 주요치료비 Plus (호르몬 포함형)</td><td class="amount">300만원</td><td class="price">4,137원</td><td class="note">제외형과 합산 1천만</td></tr>
+          <tr><td class="name">암 주요치료비 Plus (호르몬 제외형)</td><td class="amount">700만원</td><td class="price">8,617원</td><td class="note">포함형과 합산 1천만</td></tr>
+          <tr><td class="name">비급여 암 주요치료비 Plus</td><td class="amount">2,000만원</td><td class="price">5,580원</td><td class="note">연간반복</td></tr>
+          <tr><td class="name">비급여 암 특정주요치료비 Plus</td><td class="amount">1,000만원</td><td class="price">3,900원</td><td class="note">다빈치로봇 등</td></tr>
+          <tr><td class="name">유사암 주요치료비 Plus (포함·제외형)</td><td class="amount">100~300만원</td><td class="price">1,627원</td><td class="note">연간반복</td></tr>
+          <tr class="subtotal-row"><td class="name">소계</td><td class="amount">—</td><td class="price">82,175원</td><td class="note"></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 3. 뇌·심장·순환계 -->
+    <div class="cat-section" data-cat="cardio">
+      <div class="section-title"><h3>3. 뇌 · 심장 · 순환계</h3><span class="count">5개 담보</span></div>
+      <table class="coverage-table">
+        <thead><tr><th style="width:46%;">담보명</th><th class="right" style="width:18%;">가입금액</th><th class="right" style="width:14%;">월 보험료</th><th style="width:22%;">비고</th></tr></thead>
+        <tbody>
+          <tr><td class="name">뇌혈관질환진단비 (감액없음)</td><td class="amount">2,000만원</td><td class="price">9,900원</td><td class="note"><span class="badge-sm b-fixed">100세</span> 최초1회</td></tr>
+          <tr><td class="name">심장질환(특정Ⅰ)진단비 — 협심증 등</td><td class="amount">1,000만원</td><td class="price">3,780원</td><td class="note">최초1회</td></tr>
+          <tr><td class="name">심장질환(특정Ⅱ)진단비 — 급성심근경색 등</td><td class="amount">2,000만원</td><td class="price">1,290원</td><td class="note">최초1회</td></tr>
+          <tr><td class="name">양성뇌종양진단비</td><td class="amount">500만원</td><td class="price">105원</td><td class="note">최초1회</td></tr>
+          <tr><td class="name">신특정순환계질환 주요치료비 Plus</td><td class="amount">2,000만원</td><td class="price">11,100원</td><td class="note"><span class="badge-sm b-fixed">신규</span> 연간반복</td></tr>
+          <tr class="subtotal-row"><td class="name">소계</td><td class="amount">—</td><td class="price">26,175원</td><td class="note"></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 4. 입원·간병·수술 -->
+    <div class="cat-section" data-cat="hosp">
+      <div class="section-title"><h3>4. 입원 · 간병 · 수술</h3><span class="count">18개 담보</span></div>
+      <table class="coverage-table">
+        <thead><tr><th style="width:46%;">담보명</th><th class="right" style="width:18%;">가입금액</th><th class="right" style="width:14%;">월 보험료</th><th style="width:22%;">비고</th></tr></thead>
+        <tbody>
+          <tr><td class="name">질병수술비</td><td class="amount">30만원</td><td class="price">4,344원</td><td class="note">수술시</td></tr>
+          <tr><td class="name">질병1~5종수술비Ⅱ (1~5종 합산)</td><td class="amount">20만~1,000만</td><td class="price">17,514원</td><td class="note"><span class="badge-sm b-fixed">매회지급</span></td></tr>
+          <tr><td class="name">특정 양성종양 수술비 (68대)</td><td class="amount">10만~500만</td><td class="price">831원</td><td class="note">최초1회</td></tr>
+          <tr><td class="name">6대기관 양성종양·용종수술비</td><td class="amount">50만원</td><td class="price">675원</td><td class="note">연간1회</td></tr>
+          <tr><td class="name">골절철심제거수술비</td><td class="amount">50만원</td><td class="price">195원</td><td class="note">연간1회</td></tr>
+          <tr><td class="name">간병인사용 질병입원일당Ⅱ (요양제외)</td><td class="amount">10만원</td><td class="price">5,450원</td><td class="note"><span class="badge-sm b-fixed">신규</span> 1일당</td></tr>
+          <tr><td class="name">간병인사용 상해입원일당Ⅱ (요양제외)</td><td class="amount">10만원</td><td class="price">1,880원</td><td class="note"><span class="badge-sm b-fixed">신규</span> 1일당</td></tr>
+          <tr><td class="name">간병인사용 질병입원일당 (요양병원)</td><td class="amount">5만원</td><td class="price">3,480원</td><td class="note">1일당</td></tr>
+          <tr><td class="name">상급종합병원 간병인 질병입원일당</td><td class="amount">10만원</td><td class="price">1,620원</td><td class="note">1일당</td></tr>
+          <tr><td class="name">간호간병통합 질병입원일당</td><td class="amount">7만원</td><td class="price">3,129원</td><td class="note"><span class="badge-sm b-fixed">신규</span> 1일당</td></tr>
+          <tr><td class="name">간호간병통합 상해입원일당</td><td class="amount">7만원</td><td class="price">854원</td><td class="note">1일당</td></tr>
+          <tr><td class="name">상해중환자실 입원일당Ⅱ</td><td class="amount">20만원</td><td class="price">1,120원</td><td class="note">1일당</td></tr>
+          <tr><td class="name">기타 간병인·간호간병 입원일당 (6종)</td><td class="amount">5~10만원</td><td class="price">227원</td><td class="note">181일이상 등</td></tr>
+          <tr class="subtotal-row"><td class="name">소계</td><td class="amount">—</td><td class="price">41,319원</td><td class="note"></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 5. 기타 진단·치료 -->
+    <div class="cat-section" data-cat="other">
+      <div class="section-title"><h3>5. 기타 진단 · 치료 · 생활</h3><span class="count">7개 담보</span></div>
+      <table class="coverage-table">
+        <thead><tr><th style="width:46%;">담보명</th><th class="right" style="width:18%;">가입금액</th><th class="right" style="width:14%;">월 보험료</th><th style="width:22%;">비고</th></tr></thead>
+        <tbody>
+          <tr><td class="name">대장 양성종양 및 용종진단비</td><td class="amount">20만원</td><td class="price">962원</td><td class="note">연간1회</td></tr>
+          <tr><td class="name">위·십이지장 양성종양 및 용종진단비</td><td class="amount">10만원</td><td class="price">102원</td><td class="note">연간1회</td></tr>
+          <tr><td class="name">대상포진진단비 · 대상포진눈병진단비</td><td class="amount">100·300만원</td><td class="price">2,180원</td><td class="note">최초1회</td></tr>
+          <tr><td class="name">독감(인플루엔자) 항바이러스제 치료비</td><td class="amount">20만원</td><td class="price">680원</td><td class="note"><span class="badge-sm b-renewal">갱신</span> 연간1회</td></tr>
+          <tr><td class="name">깁스치료비</td><td class="amount">50만원</td><td class="price">665원</td><td class="note">사고당</td></tr>
+          <tr><td class="name">강력범죄피해보장</td><td class="amount">500만원</td><td class="price">80원</td><td class="note">사망·피해</td></tr>
+          <tr><td class="name">의료사고법률비용</td><td class="amount">200만원</td><td class="price">3원</td><td class="note">1심 한도</td></tr>
+          <tr><td class="name">기타 소액 담보 (양성종양 세부 등)</td><td class="amount">—</td><td class="price">300원</td><td class="note">묶음</td></tr>
+          <tr class="subtotal-row"><td class="name">소계</td><td class="amount">—</td><td class="price">4,972원</td><td class="note"></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 총합계 -->
+    <div class="grand-total">
+      <div class="gt-left">
+        <div class="label">월 납입 보험료 합계 (전기간 고정)</div>
+        <div class="breakdown">세만기 비갱신형 · 30년납 100세만기 · 청약번호 RQ26-39356104</div>
+      </div>
+      <div class="gt-right">
+        <div class="total-num">162,320<span>원/월</span></div>
+        <div class="per-day">하루 약 5,411원 · 연간 약 1,947,840원</div>
+      </div>
+    </div>
+
+    <div class="footnote">
+      ※ <strong>해약환급금 50%지급형(납입기간 이후)</strong>: 납입기간(30년) 중 해지 시 환급금 없음. 납입 완료 후 해지 시 표준형의 50% 지급 — 63세(30년) 시점 환급률 약 30.3%(1,764만원).<br>
+      ※ <strong>비갱신형(세만기)</strong>: 대부분 담보가 100세만기 고정으로, 30년 납입 후 추가 납입 없이 평생 보장. (일부 갱신담보: CAR-T·독감 등은 별도 갱신)<br>
+      ※ <strong>현재 보험(The드림365·19.09)</strong>: 전 담보 30년갱신형으로 2049-11-25(만 56세) 종료. 노년기 보장 공백 발생.<br>
+      ※ 암보장개시일 : 계약일로부터 90일이 지난 날의 다음날 (유사암·갑상선암은 계약일부터 즉시 적용).<br>
+      ※ 12대 납입면제 사유 : 암(유사암 제외)·뇌혈관·허혈성심장·양성뇌종양·재생불량성빈혈·외상특정뇌출혈·외상특정장기손상·만성당뇨합병증·중대한화상및부식·산정특례희귀질환·일반상해 50%↑ 후유장해·질병 50%↑ 후유장해.<br>
+      ※ 본 자료는 상품제안서 내용을 요약·재구성한 비교 안내용이며 회사 공식 서류가 아닙니다. 세부사항은 반드시 약관 및 상품설명서를 확인하시기 바랍니다.<br>
+      영업담당자 : 일산중앙TC지점 · 김유진 TC · 010-5650-5972 · 031-960-7580
+    </div>
+
+  </div>
+</div><!-- /tab-detail -->
+
+
+<script>
+function switchTab(id, btn){
+  document.querySelectorAll('.tab-pane').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active'); btn.classList.add('active');
+}
+function showSc(id, btn){
+  document.querySelectorAll('.sc-body').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.sc-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active'); btn.classList.add('active');
+}
+function switchCat(id, btn){
+  const all=document.querySelectorAll('.cat-section');
+  document.querySelectorAll('.cat-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  if(id==='cat-all'){ all.forEach(s=>s.style.display='block'); }
+  else{
+    const m={'cat-cancer':'cancer','cat-cardio':'cardio','cat-hosp':'hosp','cat-other':'other'};
+    const t=m[id];
+    all.forEach(s=>{ s.style.display=(s.dataset.cat===t)?'block':'none'; });
+  }
+}
+</script>
+</body>
+</html>
